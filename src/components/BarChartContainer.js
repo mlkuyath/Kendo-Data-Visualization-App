@@ -7,6 +7,7 @@ import {
   ChartSeriesItem,
   ChartCategoryAxis,
   ChartTitle,
+  ChartSeriesLabels,
   ChartCategoryAxisItem,
   ChartLegend,
   ChartValueAxis,
@@ -16,8 +17,9 @@ import {
 import { barChartDeltaStats } from '../data/appData';
 
 export const BarChartContainer = () => (
-  <Chart style={{ height: 288 }}>
+  <Chart style={{ height: 288, width:300 }}>
     <ChartLegend visible={false} />
+    <ChartSeriesLabels visible={true} position="center"/>
     <ChartTitle font="20px" text={"Year-over-Year Change"}/>
     <ChartSeries>
       {
