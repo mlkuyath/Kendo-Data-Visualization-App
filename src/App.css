@@ -31,7 +31,7 @@ h1 {
   outline: solid 1px black;
 }*/
 
-.teammate:after {
+.player:after {
   content: ".";
   display: block;
   height: 0;
@@ -39,17 +39,17 @@ h1 {
   clear: both;
   visibility: hidden;
 }
-.teammate h2 {
+.player h2 {
   font-size: 1.3em;
   font-weight: normal;
   padding-top: 17px;
   margin: 0;
 }
-.teammate p {
+.player p {
   margin: 0;
   font-size: .7em;
 }
-.teammate img {
+.player img {
   display: inline-block;
   vertical-align: top;
   width: 50px;
