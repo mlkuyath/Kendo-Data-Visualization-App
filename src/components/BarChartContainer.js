@@ -14,10 +14,27 @@ import {
 
 import { barChartDeltaStats } from '../data/appData';
 
+let colcolor = (a) => {
+  switch (a) {
+      case 'Aronian':
+          return 'Chocolate';
+      case 'So':  
+          return 'Wheat';
+      case 'Radjabov':
+          return 'Aquamarine';
+      case 'Giri':
+          return 'DarkCyan';
+      default:
+          break;
+
+  }
+}
+
 const seriesToolTip = {
   background: "DAF7A6", // Note that visible defaults to false
   visible: true
 };
+
 
 export const BarChartContainer = () => (
   <Chart style={{ height: 288, width:300 }}>
@@ -27,7 +44,7 @@ export const BarChartContainer = () => (
     <ChartSeries>
       {
         barChartDeltaStats.map((item, idx) => (
-          <ChartSeriesItem key={idx} type="column" data={item.data} name={item.name} tooltip={seriesToolTip} gap={2}/>
+          <ChartSeriesItem key={idx} type="column" data={item.data} name={item.name} color={colcolor(item.name)} tooltip={seriesToolTip} gap={2}/>
         ))}
     </ChartSeries>
     <ChartValueAxis skip={4}>

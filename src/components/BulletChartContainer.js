@@ -20,6 +20,22 @@ const seriesToolTip = {
     visible: true
 };
 
+let colcolor = (a) => {
+    switch (a) {
+        case 'Aronian':
+            return 'Chocolate';
+        case 'So':  
+            return 'Wheat';
+        case 'Radjabov':
+            return 'Aquamarine';
+        case 'Giri':
+            return 'DarkCyan';
+        default: 
+            break;
+
+    }
+}
+
 bulletChartJuneRatings.forEach(element => {
     let temp = element.data[0];
     element.data[0] = element.data[1];
@@ -40,9 +56,8 @@ export const BulletChartContainer = () => (
     <ChartSeries>
       {
         bulletChartJuneRatings.map((item, idx) => (
-          <ChartSeriesItem key={idx} type="bar" data={item.data} name={item.name} tooltip={seriesToolTip} gap={2}>
-              
-          </ChartSeriesItem>
+          <ChartSeriesItem key={idx} type="bar" data={item.data} name={item.name} tooltip={seriesToolTip} color={colcolor(item.name)} gap={2}/>
+        
         ))}
     </ChartSeries>
     <ChartValueAxis skip={4}>
