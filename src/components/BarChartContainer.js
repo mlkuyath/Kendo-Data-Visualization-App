@@ -5,16 +5,19 @@ import {
   Chart,
   ChartSeries,
   ChartSeriesItem,
-  ChartCategoryAxis,
   ChartTitle,
   ChartSeriesLabels,
-  ChartCategoryAxisItem,
   ChartLegend,
   ChartValueAxis,
   ChartValueAxisItem
 } from '@progress/kendo-react-charts';
 
 import { barChartDeltaStats } from '../data/appData';
+
+const seriesToolTip = {
+  background: "DAF7A6", // Note that visible defaults to false
+  visible: true
+};
 
 export const BarChartContainer = () => (
   <Chart style={{ height: 288, width:300 }}>
@@ -24,7 +27,7 @@ export const BarChartContainer = () => (
     <ChartSeries>
       {
         barChartDeltaStats.map((item, idx) => (
-          <ChartSeriesItem key={idx} type="column" data={item.data} name={item.name} gap={2}/>
+          <ChartSeriesItem key={idx} type="column" data={item.data} name={item.name} tooltip={seriesToolTip} gap={2}/>
         ))}
     </ChartSeries>
     <ChartValueAxis skip={4}>

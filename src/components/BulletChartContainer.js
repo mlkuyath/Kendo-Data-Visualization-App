@@ -11,7 +11,6 @@ import {
   ChartTitle,
   ChartValueAxis,
   ChartValueAxisItem,
-  ChartSeriesLabels
 } from '@progress/kendo-react-charts';
 
 import { bulletChartJuneTitle, bulletChartJuneRatings } from '../data/appData';
@@ -21,6 +20,15 @@ const seriesToolTip = {
     visible: true
 };
 
+bulletChartJuneRatings.forEach(element => {
+    let temp = element.data[0];
+    element.data[0] = element.data[1];
+    element.data[1] = temp;
+});
+
+let temp = bulletChartJuneTitle[0];
+bulletChartJuneTitle[0] = bulletChartJuneTitle[1];
+bulletChartJuneTitle[1] = temp;
 
 export const BulletChartContainer = () => (
   <Chart style={{ height: 300, width: 400 }}>
@@ -32,7 +40,9 @@ export const BulletChartContainer = () => (
     <ChartSeries>
       {
         bulletChartJuneRatings.map((item, idx) => (
-          <ChartSeriesItem key={idx} type="bar" data={item.data} name={item.name} tooltip={seriesToolTip} gap={2}/>
+          <ChartSeriesItem key={idx} type="bar" data={item.data} name={item.name} tooltip={seriesToolTip} gap={2}>
+              
+          </ChartSeriesItem>
         ))}
     </ChartSeries>
     <ChartValueAxis skip={4}>
