@@ -47,8 +47,8 @@ bulletChartJuneTitle[0] = bulletChartJuneTitle[1];
 bulletChartJuneTitle[1] = temp;
 
 export const BulletChartContainer = () => (
-  <Chart style={{ height: 300, width: 400 }}>
-    <ChartLegend visible={true} />
+  <Chart style={{ height: 300, width: 440 }}>
+    <ChartLegend visible={true} position="right"  />
     <ChartTitle font="20px" text={"Rating"}/>
     <ChartCategoryAxis>
       <ChartCategoryAxisItem categories={bulletChartJuneTitle} startAngle={45} />

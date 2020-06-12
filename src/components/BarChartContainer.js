@@ -6,7 +6,6 @@ import {
   ChartSeries,
   ChartSeriesItem,
   ChartTitle,
-  ChartSeriesLabels,
   ChartLegend,
   ChartValueAxis,
   ChartValueAxisItem
@@ -35,20 +34,22 @@ const seriesToolTip = {
   visible: true
 };
 
+const reflectaxis = {
+  mirror: true
+};
 
 export const BarChartContainer = () => (
   <Chart style={{ height: 288, width:300 }}>
     <ChartLegend visible={false} />
-    <ChartSeriesLabels visible={true} position="center"/>
     <ChartTitle font="20px" text={"Year-over-Year Change"}/>
     <ChartSeries>
       {
         barChartDeltaStats.map((item, idx) => (
-          <ChartSeriesItem key={idx} type="column" data={item.data} name={item.name} color={colcolor(item.name)} tooltip={seriesToolTip} gap={2}/>
+          <ChartSeriesItem key={idx} type="bar" data={item.data} name={item.name} color={colcolor(item.name)} tooltip={seriesToolTip} gap={2}/>
         ))}
     </ChartSeries>
     <ChartValueAxis skip={4}>
-      <ChartValueAxisItem color="#888" skip={2} />
+      <ChartValueAxisItem color="#888" line={reflectaxis} />
     </ChartValueAxis>
   </Chart>
 );
